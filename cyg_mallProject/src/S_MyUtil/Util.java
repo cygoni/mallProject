@@ -4,4 +4,8 @@ import java.util.Scanner;
 
 public class Util {
 	static public  Scanner scan = new Scanner(System.in);
+	
+	void print() {
+		
+	}
 }
