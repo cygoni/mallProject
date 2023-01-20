@@ -6,6 +6,6 @@ public class Util {
 	static public  Scanner scan = new Scanner(System.in);
 	
 	void print() {
-		
+		String a = " ?";
 	}
 }
