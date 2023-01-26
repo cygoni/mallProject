@@ -2,6 +2,7 @@ package S1_Member;
 
 import java.util.Scanner;
 
+import S0_MALL.MallController;
 import S2_Item.ItemController;
 import S4_Cart.CartController;
 import S_MyUtil.Util;
@@ -15,9 +16,11 @@ public class MemberController {
 	private MemberDAO memberDAO;
 	private ItemController itemController;
 	private CartController cartController;
+	private MemberBoard memberBoard;
 	private Scanner scan;
 	public void init(MemberDAO memberDAO){
 		this.memberDAO = memberDAO;
+		this.memberBoard = MemberBoard.getInstance();
 		itemController = ItemController.getInstance();
 		cartController = CartController.getInstance();
 		scan = Util.scan;
@@ -72,7 +75,7 @@ public class MemberController {
 			}else if(select == 2) {
 				cartController.menuCart();
 			}else if(select == 3) {
-				
+				memberBoard.printBoard(MallController.getInstance().getMemberLoginID());
 			}
 		}	
 	}
