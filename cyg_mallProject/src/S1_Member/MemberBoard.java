@@ -13,21 +13,17 @@ public class MemberBoard {
 	}
 
 	String[][] board = null;
-	int count = 0; // 전체 게시글 수
-	int pageSize = 3; // 한 페이지에 보여줄 게시글 수
-	int curPageNum = 1; // 현재 페이지 번호
-	int pageCount = 0; // 전체 페이지 개수
-	int startRow = 0; // 현재 페이지의 게시글 시작 번호
-	int endRow = 0; // 현재 페이지의 게시글 마지막 번호
-	String ID;
+	int count = 0; 
+	int pageSize = 5; 
+	int curPageNum = 1; 
+	int pageCount = 0; 
+	int startRow = 0; 
+	int endRow = 0; 
 
-	// System.out.print("한페이지에 보여줄 게시글 숫자 => ");
-	// pageSize = Util.scan.nextInt();
 
 	public void printBoard(String id) {
 		System.out.println("전체 게시글 숫자 => " + count);
-		ID = id;
-
+		
 		while (true) {
 			pageCount = (count / pageSize) + 1;
 
@@ -57,7 +53,7 @@ public class MemberBoard {
 				}
 			}
 
-			// 페이지 이동
+			
 			if (curPageNum != 1) {
 				System.out.print("[이전 1]");
 			} else {
@@ -117,18 +113,26 @@ public class MemberBoard {
 				}
 				b[count][1] = t;
 				for (int i = 0; i < count; i++) {
-					for (int j = 0; j < 2; j++) {
+					for (int j = 0; j < 3; j++) {
 						b[i][j] = board[i][j];
 					}
 				}
-				b[count][2] = ID;
+				
+				b[count][2] = id;
+				
+				for(String[] s : b) {
+					System.out.println(Arrays.toString(s));
+				}
+				
 				count++;
 				board = new String[count][3];
+				
 				for (int i = 0; i < count; i++) {
 					for (int j = 0; j < 3; j++) {
 						board[i][j] = b[i][j];
 					}
 				}
+				
 
 			} else if (choice == 4) {
 				String[][] b = new String[count - 1][2];
@@ -175,9 +179,7 @@ public class MemberBoard {
 				System.err.println("[메세지] 입력 오류");
 			}
 
-//			for (int i = 0; i < board.length; i++) {
-//				System.out.println(Arrays.toString(board[i]));
-//			}
+
 		}
 	}
 
